@@ -1,4 +1,5 @@
-import = ["/home/daniel/.config/alacritty/dracula.toml"]
+[general]
+import = ["/home/dovindan/.config/alacritty/dracula.toml"]
 
 [env]
 TERM = "xterm-256color"
@@ -11,3 +12,6 @@ family = "FiraCodeNerdFont"
 
 [window]
 opacity = 0.90
+
+padding.x = 10
+padding.y = 10
