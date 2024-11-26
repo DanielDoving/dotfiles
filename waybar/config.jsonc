@@ -91,6 +91,9 @@
             "default": ["", "", ""]
         },
         "on-click": "pavucontrol"
+    },
+    "sway/workspaces": {
+        "disable-click": true
     }
 }
 
