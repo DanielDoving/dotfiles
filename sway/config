@@ -20,7 +20,7 @@ set $term alacritty
 # on the original workspace that the command was run on.
 #set $menu dmenu_path | dmenu | xargs swaymsg exec --
 
-set $menu exec wofi --show drun
+set $menu exec wofi --show drun -i
 
 include /etc/sway/config-vars.d/*
 
@@ -87,7 +87,7 @@ include /etc/sway/config-vars.d/*
     bindsym $mod+Shift+r reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+Alt+e exec swaynag -t warning -m 'Do you really want to exit sway?' -B 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Shift+Ctrl+e exec swaynag -t warning -m 'Do you really want to exit sway?' -B 'Yes, exit sway' 'swaymsg exit'
 #
 # Moving around:
 #
