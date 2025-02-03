@@ -5,6 +5,7 @@ local vim = vim
 local Plug = vim.fn['plug#']
 
 vim.wo.number = true
+vim.wo.relativenumber = true
 
 
 vim.call('plug#begin')
@@ -31,6 +32,7 @@ vim.g.firenvim_config = {
         ["https://.*google..*"] = { takeover = 'never', priority = 1 },
         ["https://trello.com/.*"] = { takeover = 'never', priority = 1 },
         ["https://deepl.com/.*"] = { takeover = 'never', priority = 1 },
+        ["https://.*.deepl.com/.*"] = { takeover = 'never', priority = 1 },
         ["https://intraerp.office.glarotech.ch/.*"] = { takeover = 'never', priority = 1 },
     }
 }
