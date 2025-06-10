@@ -84,6 +84,7 @@ window#waybar.chromium {
 #mode,
 #idle_inhibitor,
 #scratchpad,
+#custom-work-time,
 #mpd {
     padding: 0 15px;
     border-radius: 20px;
