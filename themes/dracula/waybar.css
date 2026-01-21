@@ -1,0 +1,15 @@
+/* Dracula Theme Colors for Waybar */
+@define-color green #50FA7B;
+@define-color orange #FFB86C;
+@define-color yellow #F1FA8C;
+@define-color red #eb4d4b;
+
+@define-color background #282A36;
+@define-color background-button #44475A;
+@define-color foreground #F8F8F2;
+@define-color workspace-hover #6272A4;
+@define-color workspace-active #FF79C6;
+@define-color clock-background #BD93F9;
+
+
+

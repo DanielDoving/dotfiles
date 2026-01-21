@@ -1,0 +1,10 @@
+#!/bin/bash
+THEME=$1
+ln -sfn $THEME ./current
+
+cp ./current/sway.conf ~/.config/sway/config.d/colors.conf
+cp ./current/alacritty.toml ~/.config/alacritty/colors.toml
+cp ./current/waybar.css ~/.config/waybar/colors.css
+cp ./current/nvim.lua ~/.config/nvim/theme.lua
+
+swaymsg reload

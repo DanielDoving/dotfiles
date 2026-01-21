@@ -1,12 +1,13 @@
+@import "colors.css";
+
 * {
-    /* `otf-font-awesome` is required to be installed for icons */
     font-family: FontAwesome, FiraCodeNerdFont, Noto Sans, sans-serif;
     font-size: 14px;
 }
 
 window#waybar {
     background-color: transparent;
-    color: #f8f8f2;
+    color: @foreground;
     transition-property: background-color;
     transition-duration: .5s;
 }
@@ -15,17 +16,12 @@ window#waybar.hidden {
     opacity: 0.2;
 }
 
-/*
-window#waybar.solo {
-    background-color: #f8f8f2;
-}
-*/
 #waybar.empty #window {
     background: none;
 }
 
 #window {
-    background-color: #44475A;
+    background-color: @background-button;
     padding-left: 10px;
     padding-right: 10px;
     border-radius: 20px;
@@ -36,37 +32,36 @@ window#waybar.termite {
 }
 
 window#waybar.chromium {
-    background-color: #282A36;
+    background-color: @background;
     border: none;
 }
-
 
 #workspaces button {
     margin-left: 3px;
     padding: 0 5px;
     background-color: transparent;
-    color: #f8f8f2;
+    color: @foreground;
     border-radius: 100%;
     transition: all 0.5s ease;
-    background: #44475A;
+    background: @background-button;
 }
 
 #workspaces button:hover {
-    background: #6272A4;
+    background: @workspace-hover;
 }
 
 #workspaces button.focused {
-    background-color: #FF79C6;
+    background-color: @workspace-active;
     font-weight: bold;
 }
 
 #workspaces button.urgent {
-    background-color: #FF5555;
+    background-color: @red;
 }
 
 #mode {
-    background-color: #44475A;
-    border-bottom: 3px solid #f8f8f2;
+    background-color: @background-button;
+    border-bottom: 3px solid @foreground;
 }
 
 #clock,
@@ -88,8 +83,8 @@ window#waybar.chromium {
 #mpd {
     padding: 0 15px;
     border-radius: 20px;
-    color: #F8F8F2;
-    background-color: #44475A;
+    color: @foreground;
+    background-color: @background-button;
     transition: all 0.5s ease;
 }
 
@@ -97,67 +92,38 @@ window#waybar.chromium {
     margin-left: 20px;
 }
 
-
-/*
-#network {
-    color: #282A36;
-    background-color: #8BE9FD;
-}
-#cpu {
-    color: #282A36;
-    background-color: #FFB86C;
-}
-#memory {
-    color: #282A36;
-    background-color: #50FA7B;
-}
-#backlight {
-    color: #282A36;
-    background-color: #50FA7B;
-}
-*/
 #clock {
-    background-color: #BD93F9;
-    color: #282A36;
-}
-
-
-/* If workspaces is the leftmost module, omit left margin */
-.modules-left > widget:first-child > #workspaces {
-    margin-left: 0;
-}
-
-/* If workspaces is the rightmost module, omit right margin */
-.modules-right > widget:last-child > #workspaces {
-    margin-right: 0;
+    background-color: @clock-background;
+    color: @background;
 }
 
 @keyframes blink {
     to {
-        background-color: #f8f8f2;
-        color: #282A36;
+        background-color: @foreground;
+        color: @background;
     }
 }
 
 #battery {
-    color: #282A36;
+    color: @background;
     transition: background-color 10s ease, color 10s ease;
 }
+
 #battery.high {
-    background-color: #50FA7B;
+    background-color: @green;
 }
 
 #battery.medium {
-    background-color: #F1FA8C;
+    background-color: @yellow;
 }
 
 #battery.low {
-    background-color: #FFB86C;
+    background-color: @orange;
 }
 
 #battery.critical:not(.charging) {
-    background-color: #f53c3c;
-    color: #f8f8f2;
+    background-color: @red;
+    color: @foreground;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
@@ -166,19 +132,12 @@ window#waybar.chromium {
 }
 
 label:focus {
-    background-color: #282A36;
-}
-
-#custom-media {
-    background-color: #66cc99;
-    color: #2a5c45;
-    min-width: 100px;
+    background-color: @background;
 }
 
 #temperature.critical {
-    background-color: #eb4d4b;
+    background-color: @red;
 }
-
 
 #tray > .passive {
     -gtk-icon-effect: dim;
@@ -186,7 +145,7 @@ label:focus {
 
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
-    background-color: #eb4d4b;
+    background-color: @red;
 }
 
 #scratchpad {
@@ -194,5 +153,5 @@ label:focus {
 }
 
 #scratchpad.empty {
-	background-color: transparent;
+    background-color: transparent;
 }

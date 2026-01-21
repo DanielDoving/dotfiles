@@ -1,6 +1,9 @@
 -- source /opt/.vimrc
 --
 --
+local dotfiles_path = os.getenv("HOME") .. "/Documents/dotfiles/nvim/lua/?.lua"
+package.path = package.path .. ";" .. dotfiles_path
+
 local vim = vim
 local Plug = vim.fn['plug#']
 
@@ -10,13 +13,11 @@ vim.wo.relativenumber = true
 
 vim.call('plug#begin')
 
-Plug('glacambre/firenvim', { ['do'] = function()
-	vim.fn['firenvim#install'](0)
-end})
-
 Plug('dracula/vim', { ['as'] = 'dracula' })
+Plug 'ellisonleao/gruvbox.nvim'
 
 vim.call('plug#end')
+
 
 vim.api.nvim_create_autocmd({'UIEnter'}, {
     callback = function(event)
@@ -37,9 +38,12 @@ vim.g.firenvim_config = {
     }
 }
 
-vim.cmd [[colorscheme dracula]]
+vim.o.background = "dark"
+vim.cmd('luafile ~/.config/nvim/theme.lua')
+
 
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
+
 

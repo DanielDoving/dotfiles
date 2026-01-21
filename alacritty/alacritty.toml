@@ -1,17 +1,15 @@
 [general]
-import = ["/home/dovindan/.config/alacritty/dracula.toml"]
-
+import = ["~/.config/alacritty/colors.toml"]
 [env]
 TERM = "xterm-256color"
 
 [font]
-size = 16.0
+size = 14.0
 
 [font.normal]
 family = "FiraCodeNerdFont"
 
 [window]
-opacity = 10
-
 padding.x = 10
 padding.y = 10
+
