@@ -1,9 +1,6 @@
 -- source /opt/.vimrc
 --
 --
-local dotfiles_path = os.getenv("HOME") .. "/Documents/dotfiles/nvim/lua/?.lua"
-package.path = package.path .. ";" .. dotfiles_path
-
 local vim = vim
 local Plug = vim.fn['plug#']
 
