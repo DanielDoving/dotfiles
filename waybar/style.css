@@ -2,7 +2,9 @@
 
 * {
     font-family: FontAwesome, FiraCodeNerdFont, Noto Sans, sans-serif;
-    font-size: 14px;
+    font-size: 15px;
+    font-weight: normal;
+    font-style: normal;
 }
 
 window#waybar {
@@ -35,8 +37,37 @@ window#waybar.chromium {
     background-color: @background;
     border: none;
 }
+#workspaces {
+    padding: 0;
+}
 
 #workspaces button {
+    /* Circle dimensions */
+    min-width: 30px;
+    min-height: 30px;
+    
+    /* Make it a perfect circle */
+    border-radius: 50%;
+    
+    /* Center the icon */
+    margin-left: 3px;
+    padding: 0 2px;
+    
+    /* Visual styling */
+    background-color: @background-button;
+    color: @foreground;
+    
+    /* Smooth transitions */
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/*
+#workspaces button {
+    min-width: 24px;
+    min-height: 24px;
+    max-width: 24px;
+    max-height: 24px;
+
     margin-left: 3px;
     padding: 0 5px;
     background-color: transparent;
@@ -45,6 +76,7 @@ window#waybar.chromium {
     transition: all 0.5s ease;
     background: @background-button;
 }
+*/
 
 #workspaces button:hover {
     background: @workspace-hover;

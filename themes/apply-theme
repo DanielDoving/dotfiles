@@ -1,10 +1,101 @@
 #!/bin/bash
-THEME=$1
+# Theme switcher using your actual GTK themes
+THEME=${1:-gruvbox}
+THEME=${THEME%/}
+
 ln -sfn $THEME ./current
 
-cp ./current/sway.conf ~/.config/sway/config.d/colors.conf
-cp ./current/alacritty.toml ~/.config/alacritty/colors.toml
-cp ./current/waybar.css ~/.config/waybar/colors.css
-cp ./current/nvim.lua ~/.config/nvim/theme.lua
+echo "🎨 Applying $THEME theme..."
 
-swaymsg reload
+# Map theme names to your actual GTK theme directories
+case $THEME in
+    gruvbox)
+        GTK_THEME_NAME="Gruvbox-Dark-B"
+        ;;
+    dracula)
+        GTK_THEME_NAME="Dracula"
+        ;;
+    nordic)
+        GTK_THEME_NAME="Nordic"
+        ;;
+    *)
+        GTK_THEME_NAME="Adwaita-dark"
+        ;;
+esac
+
+echo "Using GTK theme: $GTK_THEME_NAME"
+
+# 1. Sway
+if [ -f "./current/sway.conf" ]; then
+    cp "./current/sway.conf" "$HOME/.config/sway/colors.conf"
+    echo "✓ Sway colors updated"
+fi
+
+# 2. Waybar
+if [ -f "./current/waybar.css" ]; then
+    cp "./current/waybar.css" "$HOME/.config/waybar/colors.css"
+    echo "✓ Waybar style updated"
+fi
+
+# 3. Alacritty
+if [ -f "./current/alacritty.toml" ]; then
+    cp "./current/alacritty.toml" "$HOME/.config/alacritty/colors.toml"
+    echo "✓ Alacritty colors updated"
+fi
+
+# 4. Neovim
+if [ -f "./current/nvim.lua" ]; then
+    cp "./current/nvim.lua" "$HOME/.config/nvim/theme.lua"
+    echo "✓ Neovim theme updated"
+fi
+
+# 5. Wofi
+if [ -f "./current/wofi.css" ]; then
+    cp "./current/wofi.css" "$HOME/.config/wofi/style.css"
+    echo "✓ Wofi style updated"
+fi
+
+
+# 5. GTK Applications - THE IMPORTANT PART!
+echo "Setting GTK theme to: $GTK_THEME_NAME"
+
+# Method 1: gsettings (for GTK3/GTK4 apps)
+gsettings set org.gnome.desktop.interface gtk-theme "$GTK_THEME_NAME"
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+
+# Method 2: Create proper gtk.ini file
+cat > "$HOME/.config/gtk-3.0/settings.ini" << EOF
+[Settings]
+gtk-theme-name=$GTK_THEME_NAME
+gtk-icon-theme-name=Adwaita
+gtk-font-name=Noto Sans 10
+gtk-cursor-theme-name=Adwaita
+gtk-application-prefer-dark-theme=true
+EOF
+
+cp "$HOME/.config/gtk-3.0/settings.ini" "$HOME/.config/gtk-4.0/settings.ini"
+
+# 6. Clear GTK cache (important!)
+rm -rf ~/.cache/gtk-3.0 ~/.cache/gtk-4.0 2>/dev/null || true
+
+# 7. Reload applications
+echo ""
+echo "🔄 Reloading applications..."
+
+if pgrep -x sway >/dev/null; then
+    swaymsg reload
+    echo "✓ Sway reloaded"
+fi
+
+if pgrep -x waybar >/dev/null; then
+    pkill -USR1 waybar
+    echo "✓ Waybar reloaded"
+fi
+
+echo ""
+echo "✅ Theme '$THEME' applied successfully!"
+echo "   GTK theme: $GTK_THEME_NAME"
+echo ""
+echo "📝 Notes:"
+echo "  - GTK apps: Close and reopen to see theme changes"
+echo "  - Check with: gsettings get org.gnome.desktop.interface gtk-theme"
