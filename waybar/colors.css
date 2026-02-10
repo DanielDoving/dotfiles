@@ -1,17 +1,18 @@
-/* Gruvbox Dark Theme Colors for Waybar */
-/* Normal colors */
-@define-color green #b8bb26;
-@define-color orange #fe8019;
-@define-color yellow #fabd2f;
-@define-color red #cc241d;
+/* Tokyo Night Theme Colors for Waybar */
+/* Accent colors */
+@define-color blue     #7aa2f7;
+@define-color cyan     #7dcfff;
+@define-color green    #9ece6a;
+@define-color yellow   #e0af68;
+@define-color red      #f7768e;
+@define-color magenta  #bb9af7;
 
+/* Base colors */
+@define-color background         #1a1b26;
+@define-color background-button  #24283b;
+@define-color foreground         #c0caf5;
 
-@define-color background #282828;
-@define-color background-button #3c3836;
-@define-color foreground #ebdbb2;
-@define-color workspace-hover #928374;
-@define-color workspace-active #fb4934;
-@define-color clock-background #83a598;
-
-
+@define-color workspace-hover    #414868;
+@define-color workspace-active   #7aa2f7;
+@define-color clock-background   #9ece6a;
 

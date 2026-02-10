@@ -15,8 +15,11 @@ case $THEME in
     dracula)
         GTK_THEME_NAME="Dracula"
         ;;
-    nordic)
+    nord)
         GTK_THEME_NAME="Nordic"
+        ;;
+    everblush)
+        GTK_THEME_NAME="Everblush"
         ;;
     *)
         GTK_THEME_NAME="Adwaita-dark"
@@ -27,7 +30,7 @@ echo "Using GTK theme: $GTK_THEME_NAME"
 
 # 1. Sway
 if [ -f "./current/sway.conf" ]; then
-    cp "./current/sway.conf" "$HOME/.config/sway/colors.conf"
+    cp "./current/sway.conf" "$HOME/.config/sway/config.d/colors.conf"
     echo "✓ Sway colors updated"
 fi
 
@@ -53,6 +56,12 @@ fi
 if [ -f "./current/wofi.css" ]; then
     cp "./current/wofi.css" "$HOME/.config/wofi/style.css"
     echo "✓ Wofi style updated"
+fi
+
+# 6. Wallpaper
+if [ -f "./current/wallpaper" ]; then
+    cp "./current/wallpaper" "$HOME/.current_wallpaper"
+    echo "✓ Wallpaper updated"
 fi
 
 

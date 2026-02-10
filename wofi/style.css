@@ -1,27 +1,27 @@
-/* Gruvbox theme for Wofi */
+/* Tokyo Night theme for Wofi */
 window {
     margin: 0px;
-    border: 1px solid #d79921;
-    background-color: #282828;
+    border: 1px solid #7aa2f7;
+    background-color: #1a1b26;
 }
 
 #input {
     margin: 5px;
     border: none;
-    color: #ebdbb2;
-    background-color: #3c3836;
+    color: #c0caf5;
+    background-color: #24283b;
 }
 
 #inner-box {
     margin: 5px;
     border: none;
-    background-color: #282828;
+    background-color: #1a1b26;
 }
 
 #outer-box {
     margin: 5px;
     border: none;
-    background-color: #282828;
+    background-color: #1a1b26;
 }
 
 #scroll {
@@ -32,22 +32,23 @@ window {
 #text {
     margin: 5px;
     border: none;
-    color: #ebdbb2;
+    color: #c0caf5;
 }
 
 #entry.activatable #text {
-    color: #282828;
+    color: #1a1b26;
 }
 
 #entry > * {
-    color: #ebdbb2;
+    color: #c0caf5;
 }
 
 #entry:selected {
-    background-color: #458588;
+    background-color: #7aa2f7;
 }
 
 #entry:selected #text {
-    color: #282828;
+    color: #1a1b26;
     font-weight: bold;
 }
+

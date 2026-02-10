@@ -12,6 +12,9 @@ vim.call('plug#begin')
 
 Plug('dracula/vim', { ['as'] = 'dracula' })
 Plug 'ellisonleao/gruvbox.nvim'
+Plug 'shaunsingh/nord.nvim'
+Plug 'Everblush/nvim'
+Plug 'folke/tokyonight.nvim'
 
 vim.call('plug#end')
 
