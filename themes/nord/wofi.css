@@ -1,0 +1,53 @@
+/* Nord theme for Wofi */
+window {
+    margin: 0px;
+    border: 1px solid #81A1C1;
+    background-color: #2E3440;
+}
+
+#input {
+    margin: 5px;
+    border: none;
+    color: #D8DEE9;
+    background-color: #3B4252;
+}
+
+#inner-box {
+    margin: 5px;
+    border: none;
+    background-color: #2E3440;
+}
+
+#outer-box {
+    margin: 5px;
+    border: none;
+    background-color: #2E3440;
+}
+
+#scroll {
+    margin: 0px;
+    border: none;
+}
+
+#text {
+    margin: 5px;
+    border: none;
+    color: #D8DEE9;
+}
+
+#entry.activatable #text {
+    color: #2E3440;
+}
+
+#entry > * {
+    color: #D8DEE9;
+}
+
+#entry:selected {
+    background-color: #81A1C1;
+}
+
+#entry:selected #text {
+    color: #2E3440;
+    font-weight: bold;
+}

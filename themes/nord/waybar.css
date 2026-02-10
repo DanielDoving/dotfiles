@@ -1,0 +1,14 @@
+/* Nord Theme Colors for Waybar */
+/* Normal colors */
+@define-color green #A3BE8C;
+@define-color orange #D08770;
+@define-color yellow #EBCB8B;
+@define-color red #BF616A;
+
+@define-color background #2E3440;
+@define-color background-button #3B4252;
+@define-color foreground #D8DEE9;
+@define-color workspace-hover #4C566A;
+@define-color workspace-active #81A1C1;
+@define-color clock-background #81A1C1;
+
