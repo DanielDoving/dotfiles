@@ -108,3 +108,10 @@ echo ""
 echo "📝 Notes:"
 echo "  - GTK apps: Close and reopen to see theme changes"
 echo "  - Check with: gsettings get org.gnome.desktop.interface gtk-theme"
+
+if [ -f "./current/mattermost.json" ]; then
+    echo "Mattermost Theme:"
+    echo ""
+    cat "./current/mattermost.json" 
+    echo ""
+fi
